@@ -1,0 +1,370 @@
+/* ============================================================
+   components.css — Botões, cards, chips, form controls, badges
+   ============================================================ */
+
+/* ---------- Botões ---------- */
+.btn {
+  --btn-bg: var(--accent);
+  --btn-fg: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  min-height: 48px;
+  padding: 0.85rem 1.6rem;
+  font-family: var(--font-display);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-medium);
+  line-height: 1;
+  color: var(--btn-fg);
+  background: var(--btn-bg);
+  border-radius: var(--r-full);
+  transition: transform var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-mid) var(--ease-out), background var(--dur-fast) var(--ease-out);
+  will-change: transform;
+}
+
+.btn svg {
+  width: 1.15em;
+  height: 1.15em;
+}
+
+.btn:hover {
+  background: var(--accent-hover);
+  box-shadow: var(--shadow-gold);
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn--lg {
+  min-height: 56px;
+  padding: 1.05rem 2rem;
+  font-size: var(--fs-md);
+}
+
+.btn--gold {
+  --btn-bg: var(--grad-metal);
+  --btn-fg: #241a04;
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+  transition: transform var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-mid) var(--ease-out), background-position var(--dur-slow) var(--ease-out);
+}
+
+.btn--gold:hover {
+  background: var(--grad-metal);
+  background-size: 200% 200%;
+  background-position: 100% 50%;
+  box-shadow: 0 10px 30px rgba(212, 167, 44, 0.35);
+}
+
+.btn--outline {
+  --btn-bg: transparent;
+  --btn-fg: var(--text);
+  border: 1.5px solid var(--border);
+}
+
+.btn--outline:hover {
+  --btn-fg: var(--accent);
+  background: transparent;
+  border-color: var(--accent);
+  box-shadow: none;
+}
+
+.section--dark .btn--outline {
+  --btn-fg: #fff;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.section--dark .btn--outline:hover {
+  --btn-fg: var(--gold);
+  border-color: var(--gold);
+}
+
+/* Botão sólido preto com borda e texto dourado (sem efeito transparente) */
+.btn--gold-outline {
+  --btn-bg: var(--graphite-850);
+  --btn-fg: var(--gold);
+  border: 1.5px solid var(--gold);
+}
+
+.btn--gold-outline:hover {
+  background: var(--gold);
+  color: var(--graphite-950);
+  border-color: var(--gold);
+  box-shadow: 0 8px 22px rgba(212, 167, 44, 0.28);
+}
+
+.btn--ghost {
+  --btn-bg: transparent;
+  --btn-fg: var(--text);
+  min-height: auto;
+  padding: 0.4rem 0;
+}
+
+.btn--ghost:hover {
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+  color: var(--accent);
+}
+
+/* Link com seta */
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--font-display);
+  font-weight: var(--fw-medium);
+  color: var(--accent);
+}
+
+.link-arrow svg {
+  width: 1em;
+  height: 1em;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.link-arrow:hover svg {
+  transform: translateX(4px);
+}
+
+/* ---------- Card genérico ---------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ---------- Product card ---------- */
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--dur-mid) var(--ease-out),
+    box-shadow var(--dur-mid) var(--ease-out), border-color var(--dur-mid) var(--ease-out);
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--gold);
+}
+
+/* Brilho metálico varrendo (bento hover, vanilla) */
+.product-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(212, 167, 44, 0.14) 48%,
+    transparent 66%
+  );
+  transform: translateX(-120%);
+  transition: transform var(--dur-slow) var(--ease-out);
+  pointer-events: none;
+}
+
+.product-card:hover::after {
+  transform: translateX(120%);
+}
+
+.product-card__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--paper-100);
+  overflow: hidden;
+}
+
+.product-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+
+.product-card:hover .product-card__media img {
+  transform: scale(1.06);
+}
+
+.product-card__cat {
+  position: absolute;
+  top: var(--sp-3);
+  left: var(--sp-3);
+  padding: 0.3rem 0.75rem;
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.04em;
+  color: var(--text-on-dark);
+  background: rgba(10, 10, 10, 0.72);
+  backdrop-filter: blur(6px);
+  border-radius: var(--r-full);
+}
+
+.product-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  padding: var(--sp-5);
+  flex: 1;
+}
+
+.product-card__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+}
+
+.product-card__desc {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.product-card__cta {
+  margin-top: auto;
+  padding-top: var(--sp-4);
+}
+
+/* ---------- Filter chips ---------- */
+.filter-bar {
+  display: flex;
+  gap: var(--sp-3);
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  padding-block: var(--sp-2);
+  margin-inline: calc(var(--gutter) * -1);
+  padding-inline: var(--gutter);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.filter-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.chip {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  min-height: 44px;
+  padding: 0.6rem 1.15rem;
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--text-muted);
+  background: var(--paper-50);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-full);
+  white-space: nowrap;
+  transition: color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
+}
+
+.chip:hover {
+  color: var(--text);
+  border-color: var(--ink-400);
+}
+
+.chip[aria-pressed='true'] {
+  color: #fff;
+  background: var(--ink-900);
+  border-color: var(--ink-900);
+}
+
+/* ---------- Form ---------- */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.field__label {
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--text);
+}
+
+.field__req {
+  color: var(--accent);
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.75rem 1rem;
+  font-size: var(--fs-base);
+  color: var(--text);
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-md);
+  transition: border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(161, 98, 7, 0.15);
+}
+
+.field input:user-invalid,
+.field select:user-invalid,
+.field textarea:user-invalid {
+  border-color: var(--danger);
+}
+
+.field__error {
+  min-height: 1.1em;
+  font-size: var(--fs-xs);
+  color: var(--danger);
+}
+
+/* ---------- Badge / pill ---------- */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 0.3rem 0.85rem;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  border-radius: var(--r-full);
+  background: var(--paper-100);
+  color: var(--text-muted);
+}
+
+/* ---------- Empty state ---------- */
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: var(--sp-8) var(--sp-4);
+  color: var(--text-muted);
+}
+
+.empty-state svg {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto var(--sp-4);
+  color: var(--ink-400);
+}

@@ -1,0 +1,125 @@
+/* ============================================================
+   tokens.css — Design tokens (single source of truth)
+   Trocar cores/tema/espaçamento aqui, não nos componentes.
+   ============================================================ */
+
+:root {
+  /* ---- Cores base (tema híbrido) ---- */
+  --graphite-950: #0a0a0a;
+  --graphite-900: #121212;
+  --graphite-850: #181818;
+  --graphite-800: #1f1f1f;
+  --graphite-700: #2b2b2b;
+  --graphite-600: #3a3a3a;
+
+  --paper: #ffffff;
+  --paper-50: #f7f7f6;
+  --paper-100: #f0efed;
+  --paper-200: #e4e2df;
+  --paper-300: #d6d3d1;
+
+  --ink-900: #0c0a09;
+  --ink-800: #1c1917;
+  --ink-600: #44403c;
+  --ink-500: #57534e;
+  --ink-400: #78716c;
+
+  /* ---- Acentos metálicos (medalha) ---- */
+  --gold: #d4a72c;          /* ouro metálico decorativo (fundo escuro) */
+  --gold-cta: #a16207;      /* ouro WCAG-safe para CTA em fundo claro */
+  --gold-cta-hover: #854d0e;
+  --gold-soft: #f5e6b8;
+  --silver: #c7c7c7;
+  --silver-light: #e8e8e8;
+  --bronze: #b06a3b;
+
+  /* ---- Papéis semânticos ---- */
+  --bg: var(--paper);
+  --bg-alt: var(--paper-50);
+  --surface: var(--paper);
+  --surface-dark: var(--graphite-900);
+  --text: var(--ink-800);
+  --text-muted: var(--ink-500);
+  --text-on-dark: #f5f4f2;
+  --text-on-dark-muted: #a8a29e;
+  --border: var(--paper-200);
+  --border-dark: rgba(255, 255, 255, 0.1);
+  --accent: var(--gold-cta);
+  --accent-hover: var(--gold-cta-hover);
+  --ring: var(--gold-cta);
+  --danger: #dc2626;
+  --success: #16a34a;
+
+  /* Gradientes metálicos */
+  --grad-metal: linear-gradient(135deg, #f5e6b8 0%, #d4a72c 35%, #a16207 70%, #d4a72c 100%);
+  --grad-silver: linear-gradient(135deg, #ffffff 0%, #c7c7c7 45%, #8a8a8a 100%);
+  --grad-dark-hero: radial-gradient(120% 120% at 80% -10%, #26221a 0%, #121212 45%, #0a0a0a 100%);
+
+  /* ---- Tipografia ---- */
+  --font-display: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-md: 1.125rem;
+  --fs-lg: clamp(1.25rem, 1.1rem + 0.7vw, 1.5rem);
+  --fs-xl: clamp(1.5rem, 1.2rem + 1.4vw, 2.125rem);
+  --fs-2xl: clamp(2rem, 1.5rem + 2.4vw, 3.25rem);
+  --fs-3xl: clamp(2.5rem, 1.7rem + 3.8vw, 4.5rem);
+
+  --fw-light: 300;
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  --lh-tight: 1.1;
+  --lh-snug: 1.3;
+  --lh-normal: 1.6;
+
+  /* ---- Espaçamento (escala 4/8) ---- */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4rem;
+  --sp-9: 6rem;
+  --sp-10: 8rem;
+
+  --section-y: clamp(4rem, 3rem + 5vw, 7rem);
+
+  /* ---- Layout ---- */
+  --container: 1200px;
+  --container-narrow: 820px;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+
+  /* ---- Raios ---- */
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --r-full: 999px;
+
+  /* ---- Sombras ---- */
+  --shadow-sm: 0 1px 2px rgba(12, 10, 9, 0.06), 0 1px 3px rgba(12, 10, 9, 0.08);
+  --shadow-md: 0 4px 12px rgba(12, 10, 9, 0.08), 0 8px 24px rgba(12, 10, 9, 0.06);
+  --shadow-lg: 0 12px 32px rgba(12, 10, 9, 0.12), 0 24px 60px rgba(12, 10, 9, 0.1);
+  --shadow-gold: 0 8px 24px rgba(161, 98, 7, 0.28);
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 160ms;
+  --dur-mid: 260ms;
+  --dur-slow: 420ms;
+
+  /* ---- z-index ---- */
+  --z-base: 1;
+  --z-catalog-sticky: 20;
+  --z-header: 100;
+  --z-menu: 200;
+  --z-overlay: 300;
+}
