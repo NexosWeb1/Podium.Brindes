@@ -553,28 +553,34 @@
 
   .steps {
     grid-template-columns: 1fr;
-    gap: var(--sp-6);
+    gap: var(--sp-7);
   }
 
   .steps__line {
     display: none;
   }
 
+  /* Passos empilhados e centralizados no celular */
   .step {
-    display: grid;
-    grid-template-columns: 64px 1fr;
-    gap: var(--sp-4);
-    text-align: left;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-  }
-
-  .step__num {
-    margin-bottom: 0;
+    text-align: center;
   }
 
   .step p {
-    margin-inline: 0;
-    max-width: none;
+    max-width: 34ch;
+    margin-inline: auto;
+  }
+
+  /* Stats do hero centralizados no celular */
+  .hero__trust {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero__trust-item {
+    align-items: center;
   }
 }
 
