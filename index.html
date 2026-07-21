@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Podium Brindes | Brindes Corporativos Personalizados</title>
+    <meta
+      name="description"
+      content="Brindes corporativos personalizados para empresas de todos os portes. Qualidade, personalização exclusiva e agilidade na produção. Solicite seu orçamento."
+    />
+    <meta name="theme-color" content="#0a0a0a" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Podium Brindes | Brindes Corporativos Personalizados" />
+    <meta
+      property="og:description"
+      content="Brindes que colocam a sua marca no pódio. Qualidade, personalização exclusiva e agilidade."
+    />
+    <meta property="og:image" content="assets/img/og/podium-og.jpg" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="img/logo%20branca.jpeg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS (ordem importa) -->
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/sections.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+
+    <!-- Libs externas (versão fixada) -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+
+    <!-- App -->
+    <script type="module" src="js/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#catalogo">Pular para o conteúdo</a>
+
+    <!-- ================= HEADER / NAV ================= -->
+    <header class="site-header" id="site-header">
+      <div class="container">
+        <nav class="nav" aria-label="Navegação principal">
+          <a class="nav__logo" href="#hero" aria-label="Podium Brindes, ir para o início">
+            <img src="img/logo%20preta.jpeg" alt="" width="40" height="40" />
+            <span>Podium Brindes</span>
+          </a>
+
+          <div class="nav__menu" id="nav-menu">
+            <ul class="nav__links">
+              <li><a class="nav__link" href="#sobre">Sobre</a></li>
+              <li><a class="nav__link" href="#catalogo">Catálogo</a></li>
+              <li><a class="nav__link" href="#beneficios">Benefícios</a></li>
+              <li><a class="nav__link" href="#como-funciona">Como funciona</a></li>
+              <li><a class="nav__link" href="#orcamento">Contato</a></li>
+            </ul>
+            <a class="btn btn--gold" href="#orcamento">Solicitar Orçamento</a>
+          </div>
+
+          <div class="nav__actions">
+            <a class="btn btn--gold" href="#orcamento">Solicitar Orçamento</a>
+            <button
+              class="nav__toggle"
+              id="nav-toggle"
+              type="button"
+              aria-label="Abrir menu"
+              aria-expanded="false"
+              aria-controls="nav-menu"
+            >
+              <span></span><span></span><span></span>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ================= 1. HERO ================= -->
+      <section class="hero" id="hero">
+        <div class="hero__bg" aria-hidden="true">
+          <div class="hero__grid-lines"></div>
+          <span class="hero__orb hero__orb--1"></span>
+          <span class="hero__orb hero__orb--2"></span>
+          <span class="hero__orb hero__orb--3"></span>
+        </div>
+        <div class="hero__glow" aria-hidden="true"></div>
+        <div class="container">
+          <div class="hero__grid">
+            <div class="hero__content">
+              <span class="eyebrow" data-reveal="fade">Brindes corporativos personalizados</span>
+              <h1 data-reveal>
+                Brindes que colocam a sua marca no
+                <span class="text-metal text-metal--anim">pódio</span>
+              </h1>
+              <p class="hero__subtitle" data-reveal>
+                Produzimos brindes personalizados com qualidade premium, personalização exclusiva e
+                agilidade na entrega. Para empresas de todos os portes.
+              </p>
+              <div class="hero__cta" data-reveal>
+                <a class="btn btn--gold btn--lg" href="#orcamento">Solicitar Orçamento</a>
+                <a class="btn btn--gold-outline btn--lg" href="#catalogo">Ver Catálogo</a>
+              </div>
+
+              <div class="hero__trust" data-reveal-group>
+                <div class="hero__trust-item" data-reveal-item>
+                  <span class="hero__trust-num">+9</span>
+                  <span class="hero__trust-label">categorias</span>
+                </div>
+                <div class="hero__trust-item" data-reveal-item>
+                  <span class="hero__trust-num">100%</span>
+                  <span class="hero__trust-label">personalizável</span>
+                </div>
+                <div class="hero__trust-item" data-reveal-item>
+                  <span class="hero__trust-num">Ágil</span>
+                  <span class="hero__trust-label">produção &amp; entrega</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero__visual" data-reveal="scale">
+              <!-- Trocar src pelo caminho em data-real-src quando a foto do hero chegar. -->
+              <img
+                data-real-src="assets/img/hero/hero-brindes.webp"
+                src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22640%22 height=%22640%22%3E%3Crect width=%22640%22 height=%22640%22 rx=%2222%22 fill=%22%231f1f1f%22/%3E%3Ctext x=%22320%22 y=%22330%22 fill=%22%23d4a72c%22 font-family=%22sans-serif%22 font-size=%2226%22 text-anchor=%22middle%22%3EImagem dos brindes%3C/text%3E%3C/svg%3E"
+                alt="Composição de brindes corporativos personalizados: canecas, garrafas e kits"
+                width="640"
+                height="640"
+                fetchpriority="high"
+              />
+              <div class="hero__badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L4.2 7.7l5.4-.8L12 2z" stroke-linejoin="round"/>
+                </svg>
+                <span>Qualidade<br />premium</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= MARQUEE ================= -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track" id="marquee-track">
+          <!-- preenchido por JS (duplicado para loop contínuo) -->
+        </div>
+      </div>
+
+      <!-- ================= 2. QUEM É A PODIUM ================= -->
+      <section class="section about" id="sobre" aria-labelledby="sobre-title">
+        <div class="container">
+          <div class="about__grid">
+            <div class="about__media" data-reveal="left">
+              <!-- Trocar src pelo caminho em data-real-src quando a foto institucional chegar. -->
+              <img
+                data-real-src="assets/img/about/about-podium.webp"
+                src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22560%22 height=%22420%22%3E%3Crect width=%22560%22 height=%22420%22 fill=%22%23e4e2df%22/%3E%3Ctext x=%22280%22 y=%22215%22 fill=%22%238a857f%22 font-family=%22sans-serif%22 font-size=%2220%22 text-anchor=%22middle%22%3EFoto institucional%3C/text%3E%3C/svg%3E"
+                alt="Brindes personalizados produzidos pela Podium"
+                width="560"
+                height="420"
+                loading="lazy"
+              />
+            </div>
+            <div class="about__content">
+              <span class="eyebrow" data-reveal="fade">Quem é a Podium</span>
+              <h2 id="sobre-title" data-reveal>
+                Especialistas em transformar sua marca em brindes memoráveis
+              </h2>
+              <p data-reveal>
+                A Podium Brindes produz brindes corporativos personalizados para empresas de todos os
+                portes. Unimos qualidade dos materiais, personalização exclusiva e agilidade na
+                produção para que a sua marca esteja sempre presente.
+              </p>
+
+              <div class="about__features" data-reveal-group>
+                <div class="feature" data-reveal-item>
+                  <span class="feature__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M12 2l7 4v6c0 4.4-3 8-7 10-4-2-7-5.6-7-10V6l7-4z" stroke-linejoin="round"/>
+                      <path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <h3>Qualidade dos materiais</h3>
+                  <p>Produtos selecionados com acabamento premium e durabilidade.</p>
+                </div>
+                <div class="feature" data-reveal-item>
+                  <span class="feature__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M12 19l7-7a3 3 0 00-4-4l-7 7-1 5 5-1z" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <h3>Personalização exclusiva</h3>
+                  <p>Sua identidade visual aplicada com precisão em cada peça.</p>
+                </div>
+                <div class="feature" data-reveal-item>
+                  <span class="feature__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <h3>Agilidade na produção</h3>
+                  <p>Processos otimizados para prazos que a sua empresa precisa.</p>
+                </div>
+                <div class="feature" data-reveal-item>
+                  <span class="feature__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <h3>Todos os portes</h3>
+                  <p>Atendemos de pequenas empresas a grandes operações.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 3. CATÁLOGO ================= -->
+      <section class="section catalog" id="catalogo" aria-labelledby="catalogo-title">
+        <div class="container">
+          <div class="section-head section-head--center" data-reveal>
+            <span class="eyebrow">Catálogo de produtos</span>
+            <h2 id="catalogo-title">Explore nossas linhas de brindes</h2>
+            <p>Filtre por categoria e encontre o brinde ideal. Cada produto é 100% personalizável.</p>
+          </div>
+        </div>
+
+        <div class="catalog__toolbar">
+          <div class="container">
+            <div
+              class="filter-bar"
+              id="catalog-filters"
+              role="group"
+              aria-label="Filtrar produtos por categoria"
+            ></div>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="catalog__grid" id="catalog-grid" aria-live="polite"></div>
+          <div class="empty-state" id="catalog-empty" hidden>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <circle cx="11" cy="11" r="7" /><path d="M21 21l-4.3-4.3" stroke-linecap="round" />
+            </svg>
+            <p>Ainda não há produtos nesta categoria. Fale conosco para um projeto sob medida.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Template do card (markup fora do JS) -->
+      <template id="product-card-tpl">
+        <article class="product-card" data-reveal="fade">
+          <div class="product-card__media">
+            <img src="" alt="" />
+            <span class="product-card__cat"></span>
+          </div>
+          <div class="product-card__body">
+            <h3 class="product-card__title"></h3>
+            <p class="product-card__desc"></p>
+            <div class="product-card__cta">
+              <button type="button" class="btn btn--outline">Solicitar Orçamento</button>
+            </div>
+          </div>
+        </article>
+      </template>
+
+      <!-- ================= 4. BENEFÍCIOS ================= -->
+      <section class="section section--dark benefits" id="beneficios" aria-labelledby="beneficios-title">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <span class="eyebrow">Por que investir</span>
+            <h2 id="beneficios-title">Por que investir em brindes personalizados?</h2>
+            <p>
+              Brindes são uma das formas mais eficientes de manter a sua marca presente no dia a dia
+              do público.
+            </p>
+          </div>
+
+          <div class="benefits__grid" data-reveal-group>
+            <div class="benefit" data-reveal-item>
+              <span class="benefit__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L4.2 7.7l5.4-.8L12 2z" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <h3>Fortalecimento da marca</h3>
+              <p>Aumente o reconhecimento e a lembrança da sua empresa.</p>
+            </div>
+            <div class="benefit" data-reveal-item>
+              <span class="benefit__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.8 5.6a5 5 0 00-7 0L12 7.4l-1.8-1.8a5 5 0 10-7 7L12 21l8.8-8.4a5 5 0 000-7z" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <h3>Valorização de pessoas</h3>
+              <p>Encante clientes e reconheça colaboradores com brindes de valor.</p>
+            </div>
+            <div class="benefit" data-reveal-item>
+              <span class="benefit__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 3v18h18" stroke-linecap="round"/><path d="M7 15l4-4 3 3 5-6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <h3>Excelente custo-benefício</h3>
+              <p>Alto retorno de exposição por um investimento acessível.</p>
+            </div>
+            <div class="benefit" data-reveal-item>
+              <span class="benefit__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <h3>Presença constante</h3>
+              <p>Sua marca acompanha o público em cada uso, todos os dias.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 5. COMO FUNCIONA ================= -->
+      <section class="section how" id="como-funciona" aria-labelledby="how-title">
+        <div class="container">
+          <div class="section-head section-head--center" data-reveal>
+            <span class="eyebrow">Como funciona</span>
+            <h2 id="how-title">Do orçamento à entrega em 5 passos</h2>
+          </div>
+
+          <div class="steps">
+            <div class="steps__line" aria-hidden="true"></div>
+            <div class="step" data-reveal="fade">
+              <span class="step__num" aria-hidden="true"></span>
+              <h3>Solicite o orçamento</h3>
+              <p>Conte o que precisa pelo formulário ou WhatsApp.</p>
+            </div>
+            <div class="step" data-reveal="fade">
+              <span class="step__num" aria-hidden="true"></span>
+              <h3>Escolha os produtos</h3>
+              <p>Selecione os brindes ideais para o seu objetivo.</p>
+            </div>
+            <div class="step" data-reveal="fade">
+              <span class="step__num" aria-hidden="true"></span>
+              <h3>Defina a personalização</h3>
+              <p>Aplicamos a sua marca e identidade visual.</p>
+            </div>
+            <div class="step" data-reveal="fade">
+              <span class="step__num" aria-hidden="true"></span>
+              <h3>Aprovação da arte</h3>
+              <p>Você valida o layout antes da produção.</p>
+            </div>
+            <div class="step" data-reveal="fade">
+              <span class="step__num" aria-hidden="true"></span>
+              <h3>Produção e entrega</h3>
+              <p>Produzimos e entregamos no prazo combinado.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 6. FORMULÁRIO ================= -->
+      <section class="section quote" id="orcamento" aria-labelledby="quote-title">
+        <div class="container">
+          <div class="quote__grid">
+            <div class="quote__aside" data-reveal="left">
+              <span class="eyebrow">Solicitar orçamento</span>
+              <h2 id="quote-title">Vamos colocar a sua marca no pódio?</h2>
+              <p>
+                Preencha o formulário e envie direto para o nosso WhatsApp. Respondemos rápido com as
+                melhores opções para o seu projeto.
+              </p>
+              <div class="quote__points">
+                <div class="quote__point">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span>Atendimento ágil e personalizado</span>
+                </div>
+                <div class="quote__point">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span>Orçamento sem compromisso</span>
+                </div>
+                <div class="quote__point">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span>Produção para todos os portes</span>
+                </div>
+              </div>
+            </div>
+
+            <form class="quote__form" id="quote-form" novalidate data-reveal="right">
+              <div class="form-grid">
+                <div class="field">
+                  <label class="field__label" for="f-nome">Nome <span class="field__req">*</span></label>
+                  <input id="f-nome" name="nome" type="text" autocomplete="name" required />
+                </div>
+                <div class="field">
+                  <label class="field__label" for="f-empresa">Empresa</label>
+                  <input id="f-empresa" name="empresa" type="text" autocomplete="organization" />
+                </div>
+                <div class="field">
+                  <label class="field__label" for="f-whatsapp">WhatsApp <span class="field__req">*</span></label>
+                  <input id="f-whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000" required />
+                </div>
+                <div class="field">
+                  <label class="field__label" for="f-quantidade">Quantidade estimada</label>
+                  <input id="f-quantidade" name="quantidade" type="number" inputmode="numeric" min="1" placeholder="Ex.: 100" />
+                </div>
+                <div class="field">
+                  <label class="field__label" for="f-categoria">Categoria de interesse <span class="field__req">*</span></label>
+                  <select id="f-categoria" name="categoria" required></select>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="f-produto">Produto de interesse</label>
+                  <select id="f-produto" name="produto" disabled></select>
+                </div>
+                <div class="field field--full">
+                  <label class="field__label" for="f-mensagem">Mensagem</label>
+                  <textarea id="f-mensagem" name="mensagem" placeholder="Conte mais sobre o seu projeto, prazos e ideias de personalização."></textarea>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn--gold btn--lg form-submit">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.5 15.3L2 22l4.8-1.5A10 10 0 1012 2zm5.3 13.6c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.3 0 .5l-.3.5-.3.3c-.2.2-.3.3-.1.6.2.3.9 1.4 1.9 2.3 1.3 1.1 2.3 1.5 2.6 1.6.3.1.5.1.6-.1l.9-1c.2-.2.4-.2.6-.1l1.9.9c.3.1.4.2.5.3z"/></svg>
+                Enviar pelo WhatsApp
+              </button>
+              <p class="form-note">Ao enviar, abriremos uma conversa no WhatsApp com os dados preenchidos.</p>
+              <p class="form-fallback" id="form-fallback" hidden>
+                Se o WhatsApp não abriu automaticamente,
+                <a id="form-fallback-link" href="#" target="_blank" rel="noopener">clique aqui para continuar</a>.
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= 7. RODAPÉ ================= -->
+    <footer class="site-footer" id="contato">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <img class="footer-brand__logo" src="img/logo%20preta.jpeg" alt="Podium Brindes" width="120" height="56" />
+            <p>Brindes corporativos personalizados que colocam a sua marca no pódio. Qualidade, personalização e agilidade.</p>
+            <div class="footer-social">
+              <a id="social-instagram" href="#" aria-label="Instagram" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h3>Contato</h3>
+            <ul>
+              <li class="footer-contact-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.5 2.1L8.1 9.6a16 16 0 006 6l1.1-1.1a2 2 0 012.1-.5c.9.3 1.8.5 2.7.6a2 2 0 011.7 2z"/></svg>
+                <a id="contact-phone" href="#">(35) 3743-3647</a>
+              </li>
+              <li class="footer-contact-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+                <a id="contact-email" href="#">vendas@podiumbrindes.com.br</a>
+              </li>
+              <li class="footer-contact-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1116 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span id="contact-address">Campestre - MG</span>
+              </li>
+            </ul>
+            <a class="link-arrow" data-wa href="#" style="margin-top: 1rem">
+              Falar no WhatsApp
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+
+          <div class="footer-col">
+            <h3>Horário de atendimento</h3>
+            <ul id="footer-hours">
+              <li><span>Segunda a sexta</span> <strong>07h às 18h</strong></li>
+              <li><span>Sábado</span> <strong>08h às 12h</strong></li>
+              <li><span>Domingo</span> <strong>Fechado</strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>© <span id="year"></span> Podium Brindes. Todos os direitos reservados.</span>
+          <span>Brindes corporativos personalizados · Campestre-MG</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
