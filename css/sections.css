@@ -150,6 +150,7 @@
 
 .hero__visual img {
   width: 100%;
+  height: auto;
   border-radius: var(--r-lg);
   box-shadow: var(--shadow-lg);
 }
