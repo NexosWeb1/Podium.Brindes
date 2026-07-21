@@ -1,0 +1,39 @@
+# Ambiente / segredos
+.env
+.env.*
+!.env.example
+*.local
+*.log
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+*.keystore
+credentials*.json
+service-account*.json
+*secret*.json
+
+# Bancos locais
+*.sqlite
+*.db
+
+# Dependências / build
+node_modules/
+dist/
+build/
+.next/
+
+# Config local de agentes / ferramentas
+.claude/
+.agents/
+.vercel/
+
+# Sistema operacional / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Briefing interno da agencia (nao publicar em repo publico)
+escopo do projeto/
