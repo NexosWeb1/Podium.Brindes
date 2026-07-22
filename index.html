@@ -252,24 +252,25 @@
             </svg>
             <p>Ainda não há produtos nesta categoria. Fale conosco para um projeto sob medida.</p>
           </div>
+          <nav class="pagination" id="catalog-pager" aria-label="Paginação do catálogo" hidden></nav>
         </div>
       </section>
 
       <!-- Template do card (markup fora do JS) -->
       <template id="product-card-tpl">
-        <article class="product-card" data-reveal="fade">
-          <div class="product-card__media">
+        <button type="button" class="product-card">
+          <span class="product-card__media">
             <img src="" alt="" />
             <span class="product-card__cat"></span>
-          </div>
-          <div class="product-card__body">
-            <h3 class="product-card__title"></h3>
-            <p class="product-card__desc"></p>
-            <div class="product-card__cta">
-              <button type="button" class="btn btn--outline">Solicitar Orçamento</button>
-            </div>
-          </div>
-        </article>
+          </span>
+          <span class="product-card__body">
+            <span class="product-card__title"></span>
+            <span class="product-card__more">
+              Ver detalhes
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </span>
+        </button>
       </template>
 
       <!-- ================= 4. BENEFÍCIOS ================= -->

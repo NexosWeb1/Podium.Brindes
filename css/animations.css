@@ -104,6 +104,38 @@
   animation: metalShine 5s linear infinite;
 }
 
+/* Entrada dos cards do catálogo (por página) */
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* Spotlight de cursor (vanilla Inspira-ui) */
 .spotlight {
   position: relative;
@@ -175,7 +207,10 @@
   .hero__visual,
   .hero__badge,
   .text-metal--anim,
-  .marquee__track {
+  .marquee__track,
+  .product-card,
+  .pmodal__dialog,
+  .pmodal__backdrop {
     animation: none;
   }
 

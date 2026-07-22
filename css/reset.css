@@ -58,6 +58,11 @@ a {
   text-decoration: none;
 }
 
+/* Garante que o atributo hidden sempre esconda, mesmo com display custom */
+[hidden] {
+  display: none !important;
+}
+
 ul,
 ol {
   list-style: none;

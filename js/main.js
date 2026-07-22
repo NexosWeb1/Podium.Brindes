@@ -64,7 +64,7 @@ function hydrateContactLinks() {
   }
 }
 
-function main() {
+async function main() {
   hydrateContactLinks();
   buildMarquee();
 
@@ -77,15 +77,17 @@ function main() {
     resume: scroll.resume,
   });
 
-  const form = initForm();
+  const form = await initForm();
 
-  initCatalog({
+  await initCatalog({
     onQuote: (product) => {
       form?.prefill?.(product);
       scroll.scrollTo('#orcamento', { offset: -72 });
     },
     onRender: () => anim.refresh?.(),
-    reveal: (cards) => anim.revealBatch?.(cards),
+    scrollTo: scroll.scrollTo,
+    pause: scroll.pause,
+    resume: scroll.resume,
   });
 
   // Recalcula ScrollTrigger após fontes carregarem (evita desalinhamento)

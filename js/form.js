@@ -4,8 +4,10 @@
    ============================================================ */
 
 import { CATEGORIES } from '../data/categories.js';
-import { PRODUCTS } from '../data/products.js';
+import { listProducts } from './store.js';
 import { CONFIG, waLink } from './config.js';
+
+let PRODUCTS = [];
 
 /** Hook para futura integração (analytics/backend). No-op por padrão. */
 export function onQuoteSubmitted(payload) {
@@ -60,9 +62,15 @@ function buildMessage(data) {
   ].join('\n');
 }
 
-export function initForm() {
+export async function initForm() {
   const form = document.getElementById('quote-form');
   if (!form) return;
+
+  try {
+    PRODUCTS = await listProducts();
+  } catch (e) {
+    PRODUCTS = [];
+  }
 
   const catSelect = form.elements.categoria;
   const prodSelect = form.elements.produto;
