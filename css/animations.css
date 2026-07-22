@@ -45,36 +45,59 @@
   }
 }
 
-/* Orbes metálicos flutuando no fundo do hero */
+/* Orbes metálicos flutuando no fundo do hero (movimento amplo e organico) */
 @keyframes orbFloat1 {
-  0%,
-  100% {
+  0% {
     transform: translate(0, 0) scale(1);
   }
+  25% {
+    transform: translate(-16%, 14%) scale(1.14);
+  }
   50% {
-    transform: translate(-4%, 6%) scale(1.12);
+    transform: translate(-6%, 26%) scale(0.94);
+  }
+  75% {
+    transform: translate(10%, 10%) scale(1.08);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
   }
 }
 
 @keyframes orbFloat2 {
-  0%,
-  100% {
+  0% {
     transform: translate(0, 0) scale(1);
   }
+  25% {
+    transform: translate(20%, -12%) scale(1.16);
+  }
   50% {
-    transform: translate(6%, -5%) scale(1.08);
+    transform: translate(30%, 8%) scale(1);
+  }
+  75% {
+    transform: translate(12%, 18%) scale(1.1);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
   }
 }
 
 @keyframes orbFloat3 {
-  0%,
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.22;
+  }
+  33% {
+    transform: translate(-30%, -66%) scale(1.2);
+    opacity: 0.34;
+  }
+  66% {
+    transform: translate(-70%, -40%) scale(0.9);
+    opacity: 0.26;
+  }
   100% {
     transform: translate(-50%, -50%) scale(1);
-    opacity: 0.18;
-  }
-  50% {
-    transform: translate(-42%, -58%) scale(1.15);
-    opacity: 0.28;
+    opacity: 0.22;
   }
 }
 
