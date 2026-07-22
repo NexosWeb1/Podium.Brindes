@@ -104,6 +104,28 @@
   animation: metalShine 5s linear infinite;
 }
 
+/* Glow suave flutuando (seção Sobre) */
+@keyframes floatSoft {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-6%, 8%) scale(1.1);
+  }
+}
+
+/* Barras do pódio "respirando" no divisor */
+@keyframes barPulse {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(1.12);
+  }
+}
+
 /* Entrada dos cards do catálogo (por página) */
 @keyframes cardIn {
   from {
@@ -210,7 +232,10 @@
   .marquee__track,
   .product-card,
   .pmodal__dialog,
-  .pmodal__backdrop {
+  .pmodal__backdrop,
+  .about::before,
+  .about::after,
+  .section-divider__bars i {
     animation: none;
   }
 

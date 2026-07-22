@@ -219,6 +219,92 @@
 /* ---------- SOBRE ---------- */
 .about {
   position: relative;
+  background: linear-gradient(180deg, #fbfaf8 0%, #f2efea 100%);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Brilho dourado suave e animado ao fundo (tom distinto do catálogo branco) */
+.about::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: -12%;
+  right: -6%;
+  width: 34rem;
+  height: 34rem;
+  background: radial-gradient(circle, rgba(212, 167, 44, 0.12), transparent 68%);
+  filter: blur(50px);
+  animation: floatSoft 16s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.about::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  bottom: -14%;
+  left: -8%;
+  width: 26rem;
+  height: 26rem;
+  background: radial-gradient(circle, rgba(176, 106, 59, 0.08), transparent 70%);
+  filter: blur(50px);
+  animation: floatSoft 20s ease-in-out infinite reverse;
+  pointer-events: none;
+}
+
+/* ---------- Divisor entre Sobre e Catálogo ---------- */
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-5);
+  max-width: 520px;
+  margin-inline: auto;
+  padding: var(--sp-8) var(--gutter);
+}
+
+.section-divider__line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--paper-300));
+}
+
+.section-divider__line:last-child {
+  background: linear-gradient(90deg, var(--paper-300), transparent);
+}
+
+.section-divider__bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  height: 30px;
+}
+
+.section-divider__bars i {
+  display: block;
+  width: 8px;
+  border-radius: 3px 3px 1px 1px;
+  transform-origin: bottom;
+  animation: barPulse 3s ease-in-out infinite;
+}
+
+.section-divider__bars i:nth-child(1) {
+  height: 15px;
+  background: linear-gradient(180deg, #c98a5b, var(--bronze));
+  animation-delay: 0s;
+}
+
+.section-divider__bars i:nth-child(2) {
+  height: 22px;
+  background: var(--grad-silver);
+  animation-delay: 0.25s;
+}
+
+.section-divider__bars i:nth-child(3) {
+  height: 30px;
+  background: var(--grad-metal);
+  animation-delay: 0.5s;
 }
 
 .about__grid {
