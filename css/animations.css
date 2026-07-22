@@ -45,59 +45,46 @@
   }
 }
 
-/* Orbes metálicos flutuando no fundo do hero (movimento amplo e organico) */
-@keyframes orbFloat1 {
+/* Luzes douradas vagando pela tela (horizontal + vertical, dessincronizadas) */
+@keyframes orbRoam1 {
   0% {
     transform: translate(0, 0) scale(1);
   }
-  25% {
-    transform: translate(-16%, 14%) scale(1.14);
+  20% {
+    transform: translate(-60%, 40%) scale(1.15);
   }
-  50% {
-    transform: translate(-6%, 26%) scale(0.94);
+  40% {
+    transform: translate(-110%, 15%) scale(0.95);
   }
-  75% {
-    transform: translate(10%, 10%) scale(1.08);
+  60% {
+    transform: translate(-70%, 90%) scale(1.1);
+  }
+  80% {
+    transform: translate(-20%, 55%) scale(1.05);
   }
   100% {
     transform: translate(0, 0) scale(1);
   }
 }
 
-@keyframes orbFloat2 {
+@keyframes orbRoam2 {
   0% {
     transform: translate(0, 0) scale(1);
   }
-  25% {
-    transform: translate(20%, -12%) scale(1.16);
+  20% {
+    transform: translate(70%, -50%) scale(1.12);
   }
-  50% {
-    transform: translate(30%, 8%) scale(1);
+  40% {
+    transform: translate(130%, -20%) scale(0.96);
   }
-  75% {
-    transform: translate(12%, 18%) scale(1.1);
+  60% {
+    transform: translate(80%, -80%) scale(1.16);
+  }
+  80% {
+    transform: translate(30%, -35%) scale(1.04);
   }
   100% {
     transform: translate(0, 0) scale(1);
-  }
-}
-
-@keyframes orbFloat3 {
-  0% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0.22;
-  }
-  33% {
-    transform: translate(-30%, -66%) scale(1.2);
-    opacity: 0.34;
-  }
-  66% {
-    transform: translate(-70%, -40%) scale(0.9);
-    opacity: 0.26;
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0.22;
   }
 }
 
