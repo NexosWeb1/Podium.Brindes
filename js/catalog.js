@@ -41,11 +41,12 @@ function createCard(product, tpl) {
   img.height = 300;
   // Guarda o caminho real para troca fácil quando as fotos chegarem.
   img.dataset.realSrc = product.image;
-  if (CONFIG.productImagesReady) {
+  // Carrega a foto real se o global estiver ligado OU se o produto já tem foto.
+  if (CONFIG.productImagesReady || product.hasImage) {
     img.src = product.image;
     img.addEventListener('error', () => (img.src = placeholder(product.name)), { once: true });
   } else {
-    // Sem fotos reais ainda: mostra placeholder direto (sem 404).
+    // Sem foto real ainda: mostra placeholder direto (sem 404).
     img.src = placeholder(product.name);
   }
 
@@ -94,8 +95,9 @@ function buildFilters(bar, onSelect) {
  * @param {object} opts
  * @param {(product:object)=>void} opts.onQuote  chamado ao clicar em "Solicitar orçamento" num card.
  * @param {()=>void} [opts.onRender] chamado após render/filtro (ex.: ScrollTrigger.refresh).
+ * @param {(els:Element[])=>void} [opts.reveal] registra a animação de entrada dos cards.
  */
-export function initCatalog({ onQuote, onRender } = {}) {
+export function initCatalog({ onQuote, onRender, reveal } = {}) {
   const grid = document.getElementById('catalog-grid');
   const bar = document.getElementById('catalog-filters');
   const tpl = document.getElementById('product-card-tpl');
@@ -110,16 +112,25 @@ export function initCatalog({ onQuote, onRender } = {}) {
   grid.appendChild(frag);
 
   const cards = [...grid.querySelectorAll('.product-card')];
+  // Registra a animação de entrada agora que os cards existem no DOM.
+  if (reveal) reveal(cards);
+  let firstRender = true;
 
   function applyFilter(catId) {
     let visible = 0;
     cards.forEach((card) => {
       const show = catId === 'todos' || card.dataset.category === catId;
       card.classList.toggle('is-hidden', !show);
-      if (show) visible += 1;
+      if (show) {
+        visible += 1;
+        // Ao trocar de filtro, garante que o card apareca mesmo que a
+        // animacao de reveal (ScrollTrigger) ainda nao tenha disparado.
+        if (!firstRender) card.classList.add('is-revealed');
+      }
     });
     if (empty) empty.hidden = visible > 0;
     if (onRender) onRender();
+    firstRender = false;
   }
 
   buildFilters(bar, applyFilter);

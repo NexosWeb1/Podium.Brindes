@@ -26,7 +26,11 @@ export function initAnimations() {
   // Sem GSAP ou reduced-motion: garante tudo visível e sai.
   if (!gsap || !ScrollTrigger || reduced) {
     document.querySelectorAll('[data-reveal]').forEach((el) => el.classList.add('is-revealed'));
-    return { refresh: () => {} };
+    return {
+      refresh: () => {},
+      // Revela elementos criados dinamicamente (ex.: cards do catálogo).
+      revealBatch: (els) => els.forEach((el) => el.classList.add('is-revealed')),
+    };
   }
 
   document.documentElement.classList.add('js-anim');
@@ -96,5 +100,24 @@ export function initAnimations() {
     });
   }
 
-  return { refresh: () => ScrollTrigger.refresh() };
+  // Revela em lote elementos criados dinamicamente (cards do catálogo),
+  // que não existiam quando os reveals acima foram registrados.
+  function revealBatch(els) {
+    if (!els || !els.length) return;
+    ScrollTrigger.batch(els, {
+      start: 'top 90%',
+      once: true,
+      onEnter: (batch) =>
+        gsap.to(batch, {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: 'power3.out',
+          stagger: 0.06,
+          onComplete: () => batch.forEach((el) => el.classList.add('is-revealed')),
+        }),
+    });
+  }
+
+  return { refresh: () => ScrollTrigger.refresh(), revealBatch };
 }

@@ -85,6 +85,7 @@ function main() {
       scroll.scrollTo('#orcamento', { offset: -72 });
     },
     onRender: () => anim.refresh?.(),
+    reveal: (cards) => anim.revealBatch?.(cards),
   });
 
   // Recalcula ScrollTrigger após fontes carregarem (evita desalinhamento)
