@@ -210,24 +210,6 @@ export async function currentUser() {
   return sessionStorage.getItem('podium_admin') ? { email: 'admin-local' } : null;
 }
 
-/* ---------------- Seed inicial (só nuvem, se vazio) ---------------- */
-
-/** Popula a tabela do Supabase com os produtos-semente, se estiver vazia. */
-export async function seedIfEmpty() {
-  if (!useCloud) return { seeded: 0 };
-  const c = await sb();
-  const { count, error } = await c
-    .from('produtos')
-    .select('id', { count: 'exact', head: true });
-  if (error) throw error;
-  if (count && count > 0) return { seeded: 0 };
-  // Só grava imagem para quem tem foto real; o resto fica sem (placeholder).
-  const rows = SEED.map((p) => toRow({ ...p, image: p.hasImage ? p.image : null }));
-  const { error: insErr } = await c.from('produtos').insert(rows);
-  if (insErr) throw insErr;
-  return { seeded: rows.length };
-}
-
 /* ---------------- utilidades ---------------- */
 function slugify(s) {
   return (s || 'img')

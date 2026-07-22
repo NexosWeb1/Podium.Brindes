@@ -16,7 +16,6 @@ import {
   signIn,
   signOut,
   currentUser,
-  seedIfEmpty,
 } from './store.js';
 
 const $ = (id) => document.getElementById(id);
@@ -95,16 +94,6 @@ async function showApp() {
   $('admin-app').hidden = false;
 
   fillCategorySelects();
-
-  if (IS_CLOUD) {
-    try {
-      const { seeded } = await seedIfEmpty();
-      if (seeded) toast(`${seeded} produtos importados para o catálogo.`);
-    } catch (e) {
-      /* segue mesmo se o seed falhar */
-    }
-  }
-
   await reload();
 }
 
