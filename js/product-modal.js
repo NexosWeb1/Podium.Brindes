@@ -24,6 +24,10 @@ function buildRoot() {
       <div class="pmodal__body">
         <h3 class="pmodal__title" id="pmodal-title"></h3>
         <p class="pmodal__desc" id="pmodal-desc"></p>
+        <div class="pmodal__colors" id="pmodal-colors" hidden>
+          <span class="pmodal__colors-label">Cores disponíveis</span>
+          <div class="pmodal__swatches" id="pmodal-swatches"></div>
+        </div>
         <dl class="pmodal__specs" id="pmodal-specs"></dl>
         <button class="btn btn--gold btn--lg pmodal__cta" id="pmodal-cta" type="button">
           Solicitar Orçamento
@@ -64,6 +68,25 @@ function placeholder(label) {
     <text x="300" y="230" font-family="system-ui,sans-serif" font-size="22" fill="#8a857f" text-anchor="middle">${label}</text>
   </svg>`;
   return `data:image/svg+xml,${encodeURIComponent(svg)}`;
+}
+
+function renderColors(colors) {
+  const wrap = root.querySelector('#pmodal-colors');
+  const sw = root.querySelector('#pmodal-swatches');
+  sw.innerHTML = '';
+  if (!Array.isArray(colors) || !colors.length) {
+    wrap.hidden = true;
+    return;
+  }
+  wrap.hidden = false;
+  colors.forEach((c) => {
+    const s = document.createElement('span');
+    s.className = 'swatch swatch--display';
+    s.style.background = c.hex;
+    s.title = c.name;
+    s.setAttribute('aria-label', c.name);
+    sw.appendChild(s);
+  });
 }
 
 function renderSpecs(specs) {
@@ -117,6 +140,7 @@ export function openProductModal(product, options = {}) {
   root.querySelector('#pmodal-title').textContent = product.name;
   root.querySelector('#pmodal-desc').textContent =
     product.description || 'Produto personalizável. Solicite um orçamento.';
+  renderColors(product.colors);
   renderSpecs(product.specs);
 
   const cta = root.querySelector('#pmodal-cta');

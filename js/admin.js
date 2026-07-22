@@ -5,6 +5,7 @@
    ============================================================ */
 
 import { CATEGORIES } from '../data/categories.js';
+import { COLOR_PRESETS } from '../data/colors.js';
 import {
   IS_CLOUD,
   listProducts,
@@ -27,6 +28,50 @@ let products = [];
 let activeFilter = 'todos';
 let pendingImage = null; // dataURL da imagem nova anexada
 let deleteId = null;
+let selectedColors = []; // [{name, hex}] do produto em edição
+
+const sameColor = (a, b) => a.hex.toLowerCase() === b.hex.toLowerCase();
+
+function renderColors() {
+  // Chips selecionados (removíveis)
+  const sel = $('pf-colors-selected');
+  sel.innerHTML = selectedColors.length
+    ? ''
+    : '<span class="color-empty">Nenhuma cor selecionada</span>';
+  selectedColors.forEach((c) => {
+    const chip = document.createElement('button');
+    chip.type = 'button';
+    chip.className = 'color-chip';
+    chip.title = `Remover ${c.name}`;
+    chip.innerHTML = `<span class="color-dot" style="background:${c.hex}"></span>${c.name}
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>`;
+    chip.addEventListener('click', () => {
+      selectedColors = selectedColors.filter((x) => !sameColor(x, c));
+      renderColors();
+    });
+    sel.appendChild(chip);
+  });
+
+  // Paleta (toggle)
+  const pal = $('pf-colors-palette');
+  pal.innerHTML = '';
+  COLOR_PRESETS.forEach((c) => {
+    const on = selectedColors.some((x) => sameColor(x, c));
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'swatch' + (on ? ' is-on' : '');
+    b.style.background = c.hex;
+    b.title = c.name;
+    b.setAttribute('aria-label', c.name);
+    b.setAttribute('aria-pressed', String(on));
+    b.addEventListener('click', () => {
+      if (on) selectedColors = selectedColors.filter((x) => !sameColor(x, c));
+      else selectedColors.push({ name: c.name, hex: c.hex });
+      renderColors();
+    });
+    pal.appendChild(b);
+  });
+}
 
 /* ---------------- Login ---------------- */
 async function boot() {
@@ -158,6 +203,8 @@ function openForm(product) {
   $('pf-category').value = editing ? product.category : '';
   $('pf-description').value = editing ? product.description || '' : '';
   $('pf-featured').checked = editing ? !!product.featured : false;
+  selectedColors = editing && Array.isArray(product.colors) ? product.colors.map((c) => ({ ...c })) : [];
+  renderColors();
   pendingImage = null;
   $('pf-error').hidden = true;
 
@@ -173,6 +220,17 @@ function openForm(product) {
 
 $('add-btn').addEventListener('click', () => openForm(null));
 $('pf-image-btn').addEventListener('click', () => $('pf-image').click());
+
+// Cor personalizada
+$('pf-color-add').addEventListener('click', () => {
+  const hex = $('pf-color-val').value;
+  const name = $('pf-color-name').value.trim() || hex;
+  if (!selectedColors.some((x) => sameColor(x, { hex }))) {
+    selectedColors.push({ name, hex });
+    renderColors();
+  }
+  $('pf-color-name').value = '';
+});
 
 $('pf-image').addEventListener('change', async (e) => {
   const file = e.target.files[0];
@@ -226,7 +284,7 @@ $('product-form').addEventListener('submit', async (e) => {
       image = $('pf-preview').dataset.existing || null; // mantém a atual
     }
 
-    const payload = { name, category, description, featured, image };
+    const payload = { name, category, description, featured, image, colors: selectedColors };
     if (id) await updateProduct(id, payload);
     else await addProduct(payload);
 

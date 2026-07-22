@@ -40,6 +40,7 @@ function fromRow(r) {
     image: r.imagem_url || '',
     featured: !!r.destaque,
     specs: r.specs || null,
+    colors: Array.isArray(r.cores) ? r.cores : [],
     hasImage: !!r.imagem_url,
   };
 }
@@ -53,6 +54,7 @@ function toRow(p) {
     imagem_url: p.image || null,
     destaque: !!p.featured,
     specs: p.specs || null,
+    cores: p.colors && p.colors.length ? p.colors : null,
   };
 }
 

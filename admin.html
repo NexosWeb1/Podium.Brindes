@@ -121,6 +121,18 @@
           <textarea id="pf-description" name="description" rows="4"></textarea>
         </div>
 
+        <div class="field">
+          <span class="field__label">Cores disponíveis</span>
+          <div class="color-selected" id="pf-colors-selected" aria-live="polite"></div>
+          <p class="admin-hint">Clique nas cores da paleta para adicionar/remover:</p>
+          <div class="color-palette" id="pf-colors-palette" role="group" aria-label="Paleta de cores"></div>
+          <div class="color-custom">
+            <input type="color" id="pf-color-val" value="#d4a72c" aria-label="Escolher cor personalizada" />
+            <input type="text" id="pf-color-name" placeholder="Nome da cor (ex.: Grafite)" />
+            <button type="button" class="btn btn--outline" id="pf-color-add">Adicionar cor</button>
+          </div>
+        </div>
+
         <label class="admin-check">
           <input type="checkbox" id="pf-featured" name="featured" />
           <span>Marcar como destaque</span>
