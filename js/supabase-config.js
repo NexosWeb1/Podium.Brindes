@@ -7,7 +7,8 @@
    ============================================================ */
 
 export const SUPABASE_URL = 'https://swpfhijwmpjbdxpybfce.supabase.co';
-export const SUPABASE_ANON_KEY = '';   // colar a chave anon public aqui
+export const SUPABASE_ANON_KEY =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN3cGZoaWp3bXBqYmR4cHliZmNlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ3MjU2NDAsImV4cCI6MjEwMDMwMTY0MH0.dGEELdpONv1xzuUvUZh_dxucIpEY9995tWEFJVAvJ7w';
 
 export const IMAGE_BUCKET = 'produtos';
 

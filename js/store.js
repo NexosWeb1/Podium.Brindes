@@ -219,7 +219,8 @@ export async function seedIfEmpty() {
     .select('id', { count: 'exact', head: true });
   if (error) throw error;
   if (count && count > 0) return { seeded: 0 };
-  const rows = SEED.map(toRow);
+  // Só grava imagem para quem tem foto real; o resto fica sem (placeholder).
+  const rows = SEED.map((p) => toRow({ ...p, image: p.hasImage ? p.image : null }));
   const { error: insErr } = await c.from('produtos').insert(rows);
   if (insErr) throw insErr;
   return { seeded: rows.length };
