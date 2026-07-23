@@ -350,12 +350,13 @@
   z-index: 1;
   width: min(880px, 100%);
   max-height: calc(100dvh - 2rem);
-  overflow: auto;
+  overflow: hidden; /* a rolagem fica só na coluna da descrição */
   background: var(--surface);
   border-radius: var(--r-lg);
   box-shadow: var(--shadow-lg);
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
+  grid-template-rows: minmax(0, 1fr);
   align-items: stretch;
   animation: modalIn var(--dur-slow) var(--ease-out);
 }
@@ -418,6 +419,8 @@
   flex-direction: column;
   gap: var(--sp-4);
   padding: var(--sp-6);
+  overflow-y: auto; /* só o texto rola; a foto fica parada */
+  min-height: 0;
 }
 
 .pmodal__title {
@@ -495,6 +498,7 @@
 @media (max-width: 640px) {
   .pmodal__dialog {
     grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
   }
   .pmodal__media {
     aspect-ratio: 4 / 3;
