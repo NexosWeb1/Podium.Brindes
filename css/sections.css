@@ -137,6 +137,8 @@
 
 .hero__visual {
   position: relative;
+  max-width: 440px;
+  margin-inline: auto;
   animation: floatY 7s ease-in-out infinite;
   will-change: transform;
 }
