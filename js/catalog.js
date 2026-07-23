@@ -60,6 +60,7 @@ export async function initCatalog({ onQuote, onRender, scrollTo, pause, resume }
 
   let activeCat = 'todos';
   let page = 1;
+  const isMobile = () => window.matchMedia('(max-width: 640px)').matches;
 
   function filtered() {
     return activeCat === 'todos'
@@ -138,14 +139,26 @@ export async function initCatalog({ onQuote, onRender, scrollTo, pause, resume }
 
   function render() {
     const list = filtered();
-    const pages = Math.max(1, Math.ceil(list.length / PER_PAGE));
-    if (page > pages) page = pages;
-    const slice = list.slice((page - 1) * PER_PAGE, page * PER_PAGE);
+    const mobile = isMobile();
+    grid.classList.toggle('is-carousel', mobile);
+
+    let slice;
+    if (mobile) {
+      // Celular: carrossel (arrasta) — mostra todos, sem paginação.
+      slice = list;
+      if (pager) pager.hidden = true;
+    } else {
+      // Desktop: paginação de 4 por página.
+      const pages = Math.max(1, Math.ceil(list.length / PER_PAGE));
+      if (page > pages) page = pages;
+      slice = list.slice((page - 1) * PER_PAGE, page * PER_PAGE);
+      renderPager(pages);
+    }
 
     grid.innerHTML = '';
     slice.forEach((p, i) => grid.appendChild(createCard(p, i)));
     if (empty) empty.hidden = list.length > 0;
-    renderPager(pages);
+    if (mobile) grid.scrollLeft = 0;
     if (onRender) onRender();
   }
 
@@ -174,6 +187,17 @@ export async function initCatalog({ onQuote, onRender, scrollTo, pause, resume }
 
   buildFilters();
   render();
+
+  // Re-renderiza ao cruzar o breakpoint (paginação <-> carrossel)
+  let wasMobile = isMobile();
+  window.addEventListener('resize', () => {
+    const m = isMobile();
+    if (m !== wasMobile) {
+      wasMobile = m;
+      page = 1;
+      render();
+    }
+  });
 
   return {
     reload: async () => {

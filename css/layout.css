@@ -12,9 +12,10 @@
   border-bottom: 1px solid transparent;
 }
 
+/* Sem backdrop-filter aqui: ele criaria um "containing block" que quebra
+   o position:fixed do menu mobile (filho do header). */
 .site-header.scrolled {
-  background: rgba(10, 10, 10, 0.82);
-  backdrop-filter: blur(12px);
+  background: rgba(10, 10, 10, 0.92);
   border-bottom-color: var(--border-dark);
 }
 
@@ -257,8 +258,7 @@
     flex-direction: column;
     gap: var(--sp-6);
     padding: var(--sp-7) var(--gutter);
-    background: rgba(10, 10, 10, 0.98);
-    backdrop-filter: blur(16px);
+    background: var(--graphite-950);
     transform: translateX(100%);
     transition: transform var(--dur-slow) var(--ease-out);
     visibility: hidden;
